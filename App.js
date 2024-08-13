@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import HomeScreen from "./screens/HomeScreen";
 
 function Home() {
   return (
@@ -69,7 +70,7 @@ export default function App() {
         tabBarInactiveTintColor: 'gray',
 
        })}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Rackets" component={Rackets} />
       <Tab.Screen name="Favorites" component={FavorPage} />
     </Tab.Navigator>
