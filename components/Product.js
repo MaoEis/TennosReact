@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Product = ({ id, title, productImage, price, onPress }) => {
+const Product = ({ id, title, racketImg, price, onPress }) => {
    const formattedPrice = price?.amount 
     ? (price.amount / 100).toFixed(2) 
     : price;
@@ -10,8 +10,8 @@ const Product = ({ id, title, productImage, price, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.productContainer}>
       <Image 
-        source={{ uri: productImage }} 
-        style={[styles.productImage, { width: 100, height: 100 }]}
+        source={{ uri: racketImg }} 
+        style={[styles.racketImg, { width: 170, height: 170 }]}
         onError={(error) => console.error('Image load error:', error.nativeEvent)}
       />
       <View style={styles.productInfo}>
@@ -32,24 +32,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     borderRadius: 8,
     overflow: 'hidden',
+    height: 285,
   },
-  productImage: {
-    resizeMode: 'cover',
+
+  racketImg: {
+    resizeMode: 'resize',
+
+
   },
+
   productInfo: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
+    marginRight: 10,
   },
+
   productTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
+    width: 110,
   },
+
   heartIcon: {
-    alignSelf: 'center',
+    alignSelf: 'flex-start'
   },
+
   productPrice: {
     fontSize: 14,
+    fontWeight: 'bold',
     color: '#D94A01',
     padding: 10,
   },

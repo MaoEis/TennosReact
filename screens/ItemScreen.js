@@ -17,12 +17,14 @@ const ItemScreen = () => {
     return <Text>Item data is missing!</Text>;
   }
 
+  const formattedPrice = (item.price.amount / 100).toFixed(2);
+
   return (
     <ScrollView style={styles.container}>
       <Image style={styles.racketImg} source={{ uri: item.racketImg }} />
       <Text style={styles.productTitle}>{item.title}</Text>
       <Text style={styles.productDescription}>{item.description}</Text>
-      <Text style={styles.productPrice}>{item.price.amount} {item.price.currency}</Text>
+      <Text style={styles.productPrice}>{formattedPrice} {item.price.currency}</Text>
     </ScrollView>
   );
 };
