@@ -1,13 +1,26 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import HomeScreen from "./screens/HomeScreen";
 import RacketsScreen from "./screens/RacketsScreen";
 import FavoritesScreen from "./screens/FavoritesScreen";
+import ItemScreen from "./screens/ItemScreen";
+
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function RacketsStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="RacketsScreen" component={RacketsScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="ItemScreen" component={ItemScreen} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -33,7 +46,7 @@ export default function App() {
 
        })}>
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Rackets" component={RacketsScreen} />
+      <Tab.Screen name="Rackets" component={RacketsStack} />
       <Tab.Screen name="Favorites" component={FavoritesScreen} />
     </Tab.Navigator>
     </NavigationContainer>
