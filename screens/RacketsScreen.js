@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, Image, Platform, StyleSheet } from 'react-native';
-import Product from '../components/Product'; // Assume this path is correct
+import { View, FlatList, Platform, StyleSheet } from 'react-native';
+import Product from '../components/Product'; 
 
 const RacketsScreen = ({ navigation }) => {
   const [products, setProducts] = useState([]);
@@ -29,8 +29,6 @@ const RacketsScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* Placeholder for Filter component */}
-      {/* <Filter onSortChange={handleSortChange} /> */}
       <FlatList
         data={products}
         keyExtractor={item => item.id.toString()}

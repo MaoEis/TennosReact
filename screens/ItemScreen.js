@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import {Text, Image, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 const ItemScreen = () => {
@@ -17,13 +17,20 @@ const ItemScreen = () => {
     return <Text>Item data is missing!</Text>;
   }
 
+  const cleanDescription = (description) => {
+    // Remove <p> tags and trim spaces
+    return description.replace(/<\/?p>/g, '').trim();
+  };
+  
+  const cleanDescriptionText = cleanDescription(item.description);
   const formattedPrice = (item.price.amount / 100).toFixed(2);
 
+  
   return (
     <ScrollView style={styles.container}>
       <Image style={styles.racketImg} source={{ uri: item.racketImg }} />
       <Text style={styles.productTitle}>{item.title}</Text>
-      <Text style={styles.productDescription}>{item.description}</Text>
+      <Text style={styles.productDescription}>{cleanDescriptionText}</Text>
       <Text style={styles.productPrice}>{formattedPrice} {item.price.currency}</Text>
     </ScrollView>
   );

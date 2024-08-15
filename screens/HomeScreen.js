@@ -4,8 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 
 import WhyUsArticle from '../components/WhyUsArticle';
 
-// const Stack = createNativeStackNavigator();
-
 export default function HomeScreen() {
     const navigation = useNavigation();
     

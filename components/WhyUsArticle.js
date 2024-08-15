@@ -36,6 +36,10 @@ const WhyUsArticle = () => {
         getArticleData();
     }, []);
 
+    const cleanDescription = (description) => {
+      return description.replace(/<\/?p>/g, '').trim();
+    };
+   
 
 
     return (
@@ -49,7 +53,7 @@ const WhyUsArticle = () => {
                }}
              />
                <Text style={styles.title}>{article.title}</Text>
-               <Text style={styles.body}>{article.description}</Text>
+               <Text style={styles.body}>{cleanDescription(article.description)}</Text>
             </View>
           ))}
 
