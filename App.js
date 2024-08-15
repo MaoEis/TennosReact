@@ -1,50 +1,26 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import HomeScreen from "./screens/HomeScreen";
+import RacketsScreen from "./screens/RacketsScreen";
+import FavoritesScreen from "./screens/FavoritesScreen";
+import ItemScreen from "./screens/ItemScreen";
 
-function Home() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home.</Text>
-    </View>
-  );
-}
-
-function Rackets() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Rackets.</Text>
-    </View>
-  );
-}
-
-function FavorPage() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Favorites.</Text>
-    </View>
-  );
-}
-
-// function HomeScreen ({ navigation }) {
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.text}>Hello, this is Tennos, and it's all about tennis rackets!</Text>
-//       <Text style={styles.text}>More text...</Text>
-//       <TextInput style={styles.textInput} placeholder="Text goes here..." />
-//       <Image 
-//         style={styles.image}
-//         source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-//       />
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
+function RacketsStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="RacketsScreen" component={RacketsScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="ItemScreen" component={ItemScreen} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -69,9 +45,9 @@ export default function App() {
         tabBarInactiveTintColor: 'gray',
 
        })}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Rackets" component={Rackets} />
-      <Tab.Screen name="Favorites" component={FavorPage} />
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Rackets" component={RacketsStack} />
+      <Tab.Screen name="Favorites" component={FavoritesScreen} />
     </Tab.Navigator>
     </NavigationContainer>
 
@@ -88,17 +64,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    color: 'red'
-  },
-  textInput: {
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#5c5e5d',
-    padding: 8
-  },
-  image: {
-    width: 64,
-    height: 64,
-  }
+  
 });
