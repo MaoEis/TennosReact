@@ -9,7 +9,7 @@ const ItemScreen = () => {
 
   useEffect(() => {
     if (item?.title) {
-      navigation.setOptions({ title: item.title });
+      navigation.setOptions({ title: item.title,  headerBackTitle: 'Racket' });
     }
   }, [item?.title, navigation]);
 
@@ -37,9 +37,9 @@ const ItemScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  // container: {
-  //   padding: 20,
-  // },
+  container: {
+    textSize: 10,
+  },
 
   racketImg: {
     width: '100%',

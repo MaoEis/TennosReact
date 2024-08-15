@@ -11,7 +11,7 @@ const WhyUsArticle = () => {
             //ddev describe om port number te weten te komen
                 url = `http://10.0.2.2:63130/api/whyUs/`;
                 } else {
-                url = "https://examen-v1.ddev.site/api/rackets/";
+                url = "http://examen-v1.ddev.site/api/whyUs/";
                 }
 
             const response = await fetch(url, {

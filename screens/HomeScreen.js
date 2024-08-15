@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     },
 
     tinyRacket: {
-        height: 300,
-        width: 150,
+        height: 250,
+        width: 250,
         resizeMode: 'scale',
         justifyContent: 'center',
         alignSelf: 'center',
